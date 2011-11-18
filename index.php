@@ -70,7 +70,7 @@ for ($playerscore = $SCOREMAX; $playerscore >$SCOREMIN-1; $playerscore--)
 </table>
 <br />
 <h4><a href="matches.php">See all matches</h4>
-<small><a href="contact.php">Contact the webmaster</a> - <a href="./admin/">Admin page</a></small>
+<small><a href="./admin/">Admin page</a></small>
 </div>
 </body>
 </html>

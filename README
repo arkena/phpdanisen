@@ -1,5 +1,5 @@
 This is a simple PHP interface to handle Danisen Tournaments.
 
-Every player starts with 0 points. Each victory gives a player 1 point. Each defat costs a player 1 point. When a player reaches a max score (set in vars.php) and wins again, he gets to a new league, with score 0, except if he is already in the top league. The number of leagues can be configured as well. When a player is at -3 and loses, he gets to a lesser league. If he is already in the bottom league, he stays at -3.
+Every player starts with 0 points. Each victory gives a player 1 point. Each defeat costs a player 1 point. When a player reaches a max score (set in vars.php) and wins again, he gets to a new league, with score 0, except if he is already in the top league. The number of leagues can be configured as well. When a player is at -3 and loses, he gets to a lesser league. If he is already in the bottom league, he stays at -3.
 
 The interface allows to add players, then add matches. It displays a simple table with each players position.
