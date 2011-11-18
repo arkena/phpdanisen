@@ -1,0 +1,21 @@
+body {
+  font-family: sans-serif;
+  color: white;
+  background-color: #000000;
+}
+a:link {
+  color: yellow;
+}
+a:visited {
+  color: orange;
+}
+a:hover {
+  color: #ffffff;
+}
+table { 
+  border-collapse:collapse;
+} 
+td,th {
+  border:1px solid #666;
+  padding: 3px;
+}

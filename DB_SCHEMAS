@@ -1,0 +1,27 @@
+Database name: quakedb
+Database username: quakeuser
+
+quakedb=> \d player
+             Table "public.player"
+  Column   |         Type          | Modifiers 
+-----------+-----------------------+-----------
+ id        | integer               | not null
+ name      | character varying(32) | not null
+ score     | smallint              | 
+ in_league | smallint              | 
+Indexes:
+    "player_pkey" PRIMARY KEY, btree (id)
+    "player_name_key" UNIQUE CONSTRAINT, btree (name)
+
+quakedb=> \d match
+                  Table "public.match"
+    Column    |            Type             | Modifiers 
+--------------+-----------------------------+-----------
+ id           | integer                     | not null
+ winner_id    | integer                     | 
+ winner_score | smallint                    | 
+ loser_id     | integer                     | 
+ loser_score  | smallint                    | 
+ date         | timestamp without time zone | 
+Indexes:
+    "match_pkey" PRIMARY KEY, btree (id)
