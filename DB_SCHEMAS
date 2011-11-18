@@ -1,7 +1,6 @@
-Database name: quakedb
-Database username: quakeuser
+Here's the description of the postgresql tables that will be used by the interface
 
-quakedb=> \d player
+db=> \d player
              Table "public.player"
   Column   |         Type          | Modifiers 
 -----------+-----------------------+-----------
@@ -13,7 +12,7 @@ Indexes:
     "player_pkey" PRIMARY KEY, btree (id)
     "player_name_key" UNIQUE CONSTRAINT, btree (name)
 
-quakedb=> \d match
+db=> \d match
                   Table "public.match"
     Column    |            Type             | Modifiers 
 --------------+-----------------------------+-----------
