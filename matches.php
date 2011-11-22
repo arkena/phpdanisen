@@ -45,6 +45,7 @@ if (isset($_POST['score1']) && isset($_POST['score2']))
       remove_point($_POST['player1'],$dbconn);
     } // end of match creation
   } // end of not "draw game" condition
+?><a href="./admin/">Back to admin page</a><?php
 }
 
 if (isset($_GET["player"])) 
