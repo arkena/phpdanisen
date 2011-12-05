@@ -22,7 +22,7 @@ if (isset($_POST["name"]))
 } 
 
 // in case of inconsistency, we recalculate the score for the player
-reset_score($_GET["id"],$dbconn);
+// reset_score($_GET["id"],$dbconn);
 
 $wins=get_win_count($_GET["id"],$dbconn);
 $losses=get_loss_count($_GET["id"],$dbconn);
@@ -40,8 +40,10 @@ Score : <?php echo get_player_score($_GET["id"],$dbconn); ?></br></h3>
 Defeats : <a href="matches.php?loser=<?php echo $_GET["id"] ?>"><?php echo $losses ?></a><br />
 Ratio : <?php 
   if ($wins+$losses != 0) {
-    echo 100*$wins/($wins+$losses);
-    } else { echo 0; } ?>%</h5>
+    echo round(100*$wins/($wins+$losses), 2);
+    } else { echo 0; } ?>%<br />
+Average score : <?php echo get_player_average($_GET["id"],$dbconn);  ?>
+</h5>
 <br />
 <small>( <a href="admin/editplayer.php?id=<?php echo $_GET["id"] ?>">Edit player name</a> )</small>
 <?php

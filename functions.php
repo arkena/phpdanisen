@@ -49,12 +49,31 @@ function get_player_league($id,$dbconn)
   return $row[0]; // returns an int
 }
 
-function get_player_matches($id,$dbconn) 
-// function used to get matches from player id
+function get_player_victories($id,$dbconn) 
+// function used to get winner from matches played by player id
 {  
   $query = "SELECT winner_id FROM match WHERE (winner_id='" . $id . "' OR loser_id='" . $id . "');";
   $result = pg_query($dbconn,$query);
   return $result; // returns a query resource
+}
+
+function get_player_average($id,$dbconn)
+// function used to calculate average score by played id
+{
+  $query = "SELECT winner_id,winner_score,loser_score FROM match WHERE (winner_id='" . $id . "' OR loser_id='" . $id . "');";
+  $result = pg_query($dbconn,$query);
+  $total=0;
+  $count=0;
+  while ($tourneys = pg_fetch_row($result)) {
+    $count++;
+    if ($tourneys[0] == $id) {
+      $total=$total+$tourneys[1];
+    } else {
+      $total=$total+$tourneys[2];
+    }
+  }
+  $average=round($total/$count,2);
+  return $average; // returns a float
 }
 
 function set_score($id,$score,$dbconn)
@@ -125,9 +144,9 @@ function reset_score($id,$dbconn)
 {
   init_score($id,$dbconn);
 
-  $tourneys = get_player_matches($id,$dbconn);
+  $tourneys = get_player_victories($id,$dbconn);
 
-  while($row=pg_fetch_row($tourneys)) // looping played matches
+  while ($row=pg_fetch_row($tourneys)) // looping played matches
   {
     if ($row[0]==$id ) // if player is the winner
     { 
